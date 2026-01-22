@@ -1,0 +1,8 @@
+name: Build , test and deploy react app
+on: push 
+jobs: 
+    React_testing: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: check out the code
+              uses: actions/checkout@v6
