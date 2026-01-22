@@ -6,3 +6,12 @@ jobs:
         steps:
             - name: check out the code
               uses: actions/checkout@v6
+
+            - name: install node js 
+              uses: actions/setup-node@v6
+              with:
+                node-version: '24'
+
+            - name: print node version
+              run: node -v 
+              
