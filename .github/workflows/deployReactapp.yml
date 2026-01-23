@@ -21,3 +21,34 @@ jobs:
             - name: Run test cases 
               run : npm run test
 
+    Build-app: 
+        needs: React_testing
+        runs-on: ubuntu-latest
+        steps:
+            - name: check out the code
+              uses: actions/checkout@v6
+
+            - name: install node js 
+              uses: actions/setup-node@v6
+              with:
+                node-version: '24'
+
+            - name: print node version
+              run: node -v 
+
+            - name: install dependencies
+              run: npm ci
+
+            - name: Build the project
+              run : npm run build
+            
+            - name: Upload artifact
+              uses: actions/upload-artifact@v4
+              with:
+                name: dist-files
+                path: dist
+
+               
+
+
+
